@@ -18,4 +18,5 @@ Speed: {currentp[6]}
 Total: {statstot}
 
 Level: {currentp[7]}
+
 """)
