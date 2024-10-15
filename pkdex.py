@@ -1,25 +1,32 @@
 # nump = ["nome", hp, att, def, spa, spd, spe, lvl, shiny]
 
-p1 = ["Bulbasaur", 45, 49, 49, 65, 65, 45, 100, False]
-p2 = ["Ivysaur", 60, 62, 63, 80, 80, 60, 1, False]
-p3 = ["Venusaur", 80, 82, 83, 100, 100, 80, 1, False]
+pkdex = {1: ["Bulbasaur", ["Grass"], 45, 49, 49, 65, 65, 45, 100, False, [None, None, None, None]],
+         2: ["Ivysaur", ["Grass"], 60, 62, 63, 80, 80, 60, 1, False, [None, None, None, None]],
+         3: ["Venusaur", ["Grass", "Poison"], 80, 82, 83, 100, 100, 80, 1, False, [None, None, None, None]]}
 
 
 def stats(pkmn):
     print(f"""
 Nome: {pkmn[0]}
-HP: {pkmn[1] + pkmn[7]}
-Attack: {pkmn[2] + pkmn[7]}
-Defense: {pkmn[3] + pkmn[7]}
-Sp Atk: {pkmn[4] + pkmn[7]}
-Sp Def: {pkmn[5] + pkmn[7]}
-Speed: {pkmn[6] + pkmn[7]}
-Total: {sum(pkmn[1:7])}
+Tipo: {pkmn[1][0:]}
 
-Level: {pkmn[7]}
-Nota: {sum(pkmn[1:7]) // len(pkmn[1:7])}
-Shiny: {pkmn[8]}
+HP: {pkmn[2] + pkmn[8]}
+Attack: {pkmn[3] + pkmn[8]}
+Defense: {pkmn[4] + pkmn[8]}
+Sp Atk: {pkmn[5] + pkmn[8]}
+Sp Def: {pkmn[6] + pkmn[8]}
+Speed: {pkmn[7] + pkmn[8]}
+Total: {sum(pkmn[2:8])}
+
+Move 1:{pkmn[10][0]}
+Move 2:{pkmn[10][1]}
+Move 3:{pkmn[10][2]}
+Move 4:{pkmn[10][3]}
+
+Level: {pkmn[8]}
+Nota: {sum(pkmn[2:8]) // len(pkmn[2:8])}
+Shiny: {pkmn[9]}
 """)
 
 
-stats(p1)
+stats(pkdex[1])
