@@ -1,8 +1,10 @@
+import os
+
 # nump = ["nome", hp, att, def, spa, spd, spe, lvl, shiny]
 
-pkdex = {1: ["Bulbasaur", ["Grass"], 45, 49, 49, 65, 65, 45, 100, False, [None, None, None, None]],
-         2: ["Ivysaur", ["Grass"], 60, 62, 63, 80, 80, 60, 1, False, [None, None, None, None]],
-         3: ["Venusaur", ["Grass", "Poison"], 80, 82, 83, 100, 100, 80, 1, False, [None, None, None, None]]}
+pks = {1: ["Bulbasaur", ["Grass"], 45, 49, 49, 65, 65, 45, 100, False, [None, None, None, None]],
+       2: ["Ivysaur", ["Grass"], 60, 62, 63, 80, 80, 60, 1, False, [None, None, None, None]],
+       3: ["Venusaur", ["Grass", "Poison"], 80, 82, 83, 100, 100, 80, 1, False, [None, None, None, None]]}
 
 
 def stats(pkmn):
@@ -29,4 +31,35 @@ Shiny: {pkmn[9]}
 """)
 
 
-stats(pkdex[1])
+def pokedex():
+    while True:
+        print("\nBem vindo a Pokédex!")
+        print("""
+[1] Todos os Pokémons
+[2] Pesquisar por Pokémon
+[3] Sair
+""")
+        opcao = input("Digite a opção: ")
+        os.system('cls')
+
+        match opcao:
+            case "1":
+                for x, y in pks.items():
+                    print(f"{x}: {y[0]}")
+
+            case "2":
+                search = input(
+                    "Digite o nome do Pokémon que quer pesquisar: ").title().strip()
+
+                for x in pks.items():
+                    if search == x[0]:
+                        stats(pks[x])
+
+            case "3":
+                break
+
+            case _:
+                os.system('cls')
+
+
+pokedex()
