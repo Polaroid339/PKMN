@@ -48,12 +48,18 @@ def pokedex():
                     print(f"{x}: {y[0]}")
 
             case "2":
-                search = input(
-                    "Digite o nome do Pokémon que quer pesquisar: ").title().strip()
+                while True:
+                    search = input("Digite o nome do Pokémon que quer pesquisar: ").title().strip()
+                    found = False
 
-                for x in pks.items():
-                    if search == x[0]:
-                        stats(pks[x])
+                    for x, y in pks.items():
+                        if search == y[0]:
+                            stats(y)
+                            found = True
+                            break
+
+                    if not found:
+                        print("Pokémon não encontrado.\n")
 
             case "3":
                 break
