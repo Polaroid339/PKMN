@@ -9,8 +9,8 @@ pks = {1: ["Bulbasaur", ["Grass"], 45, 49, 49, 65, 65, 45, 100, False, [None, No
 
 def stats(pkmn):
     print(f"""
-Nome: {pkmn[0]}
-Tipo: {pkmn[1][0:]}
+Name: {pkmn[0]}
+Type: {pkmn[1][0:]}
 
 HP: {pkmn[2] + pkmn[8]}
 Attack: {pkmn[3] + pkmn[8]}
@@ -26,7 +26,7 @@ Move 3:{pkmn[10][2]}
 Move 4:{pkmn[10][3]}
 
 Level: {pkmn[8]}
-Nota: {sum(pkmn[2:8]) // len(pkmn[2:8])}
+Rating: {sum(pkmn[2:8]) // len(pkmn[2:8])}
 Shiny: {pkmn[9]}
 """)
 
@@ -49,7 +49,8 @@ def pokedex():
 
             case "2":
                 while True:
-                    search = input("Digite o nome do Pokémon que quer pesquisar: ").title().strip()
+                    search = input(
+                        "Digite o nome do Pokémon que quer pesquisar: ").title().strip()
                     found = False
 
                     for x, y in pks.items():
