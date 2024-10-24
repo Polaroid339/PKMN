@@ -1,13 +1,21 @@
+"""
+Import necessário para limpar a tela
+"""
 import os
 
 # nump = ["nome", hp, att, def, spa, spd, spe, lvl, shiny]
 
-pks = {1: ["Bulbasaur", ["Grass"], 45, 49, 49, 65, 65, 45, 100, False, [None, None, None, None]],
-       2: ["Ivysaur", ["Grass"], 60, 62, 63, 80, 80, 60, 1, False, [None, None, None, None]],
-       3: ["Venusaur", ["Grass", "Poison"], 80, 82, 83, 100, 100, 80, 1, False, [None, None, None, None]]}
+pks = {1: ["Bulbasaur", ("Grass"), 45, 49, 49, 65, 65, 45, 1, False, [None, None, None, None]],
+       2: ["Ivysaur", ("Grass"), 60, 62, 63, 80, 80, 60, 1, False, [None, None, None, None]],
+       3: ["Venusaur", ("Grass", "Poison"), 80, 82, 83, 100, 100, 80, 1, False, [None, None, None, None]]}
 
 
 def stats(pkmn):
+    """
+    Função para verificar os stats do pokemon
+    
+    """
+
     print(f"""
 Name: {pkmn[0]}
 Type: {pkmn[1][0:]}
@@ -32,13 +40,17 @@ Shiny: {pkmn[9]}
 
 
 def pokedex():
+    """
+    Função do loop principal da pokédex
+    
+    """
+
     while True:
-        print("\nBem vindo a Pokédex!")
-        print("""
-[1] Todos os Pokémons
-[2] Pesquisar por Pokémon
-[3] Sair
-""")
+        print("\nBem vindo a Pokédex!\n")
+        print("[1] Todos os Pokémons")
+        print("[2] Pesquisar por Pokémon")
+        print("[3] Sair\n")
+
         opcao = input("Digite a opção: ")
         os.system('cls')
 
@@ -59,7 +71,10 @@ def pokedex():
                             found = True
                             break
 
-                    if not found:
+                    if found:
+                        break
+
+                    elif not found:
                         print("Pokémon não encontrado.\n")
 
             case "3":
@@ -69,4 +84,5 @@ def pokedex():
                 os.system('cls')
 
 
-pokedex()
+if __name__ == "__main__":
+    pokedex()
